@@ -25,7 +25,7 @@ app.use(morgan("dev"));
 app.use("/feedback", feedbackRoutes);
 app.use("/application", applicationRoute);
 
-app.use("/ping", (req, res) => {
+app.get("/ping", (req, res) => {
     res.status(200).send("ok")
 })
 
