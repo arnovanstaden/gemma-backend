@@ -25,6 +25,10 @@ app.use(morgan("dev"));
 app.use("/feedback", feedbackRoutes);
 app.use("/application", applicationRoute);
 
+app.use("/ping", (req, res) => {
+    res.status(200).send("ok")
+})
+
 // Handle Route Errors
 app.use((req, res, next) => {
     const error = new Error("Route Not Found")
