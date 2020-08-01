@@ -3,11 +3,18 @@ const router = express.Router();
 const transporter = require("../utils/nodemailer")
 
 router.post("/website", (req, res) => {
+
+    console.log("Website Feedback:");
+    console.log(req.body);
+
     var message = {
-        from: "info@gemmainstitute.com",
+        from: "feedback@gemmainstitute.com",
         to: "arnovanstaden@gmail.com",
-        subject: "Test",
-        text: "Test"
+        subject: "Website Feedback",
+        html: `
+            <h4>Website Feedback:</h4>
+            <p> ${req.body[0].value}</p>
+        `
     };
 
     transporter.sendMail(message, (error, result) => {
@@ -20,7 +27,8 @@ router.post("/website", (req, res) => {
 
     res.status(200).json({
         message: "Successful"
-    })
+    });
+
 });
 
 router.post("/session", (req, res) => {
