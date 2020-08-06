@@ -25,7 +25,7 @@ router.post("/", (req, res) => {
         from: "GEMMA Therapy Application <application@gemmainstitute.com>",
         to: "arnovanstaden@gmail.com",
         subject: `Therapy Application - ${search("name", req.body).value}`,
-        replyTo: search("email", req.body).value,
+        replyTo: `${search("email", req.body).value}`,
         html: buildApplicationEmail(req.body)
     };
 
@@ -304,7 +304,7 @@ const buildApplicationEmail = (applications) => {
 }
 
 
-const buildApplicationEmail = (applications) => {
+const buildUserEmail = (applications) => {
     const email =
         `
        <p> 
