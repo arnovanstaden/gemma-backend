@@ -44,7 +44,7 @@ router.post("/", (req, res) => {
     });
 
     // User Message
-    let message = {
+    let userMessage = {
         from: "GEMMA Therapy Application <application@gemmainstitute.com>",
         to: `${search("email", req.body).value}`,
         subject: `Therapy Application - ${search("name", req.body).value}`,
@@ -52,7 +52,7 @@ router.post("/", (req, res) => {
         html: buildUserEmail(req.body)
     };
 
-    transporter.sendMail(message, (error, result) => {
+    transporter.sendMail(userMessage, (error, result) => {
         if (error) {
             res.status(500).json({
                 message: "There seems to be an error submitting your feedback at this time. Please email your feedback to feedback@gemmainstitute.com."
@@ -313,7 +313,7 @@ const buildApplicationEmail = (applications) => {
        We have received your therapy application.
 
        We will generally contact you within two to three weeks.
-       
+
        Kind Regards
 
        </p>
