@@ -23,7 +23,7 @@ router.post("/", (req, res) => {
     // GEMMA Message
     let message = {
         from: "GEMMA Therapy Application <application@gemmainstitute.com>",
-        to: "arnovanstaden@gmail.com",
+        to: "application@gemmainstitute.com",
         subject: `Therapy Application - ${search("name", req.body).value}`,
         replyTo: `${search("email", req.body).value}`,
         html: buildApplicationEmail(req.body)
@@ -41,31 +41,7 @@ router.post("/", (req, res) => {
         });
 
         console.log(result);
-
-        // User Message
-        let userMessage = {
-            from: "GEMMA Therapy Application <application@gemmainstitute.com>",
-            to: `${search("email", req.body).value}`,
-            subject: `Therapy Application - ${search("name", req.body).value}`,
-            replyTo: "application@gemmainstitute.com",
-            html: buildUserEmail(req.body)
-        };
-
-        transporter.sendMail(userMessage, (error, result) => {
-            if (error) {
-                res.status(500).json({
-                    message: "There seems to be an error submitting your feedback at this time. Please email your feedback to feedback@gemmainstitute.com."
-                })
-                return console.log(error)
-            }
-            res.status(200).json({
-                message: "Successful"
-            });
-
-            console.log(result);
-        });
     });
-
 
 });
 
@@ -99,10 +75,6 @@ const buildApplicationEmail = (applications) => {
 
         <h4>Phone Number:</h4>
         <p> ${search("phone",applications).value} </p>
-        </br>
-
-        <h4>Address:</h4>
-        <p> ${search("address",applications).value} </p>
         </br>
 
         <h4>Date & Time of Availability:</h4>
@@ -310,19 +282,19 @@ const buildApplicationEmail = (applications) => {
 }
 
 
-const buildUserEmail = (applications) => {
-    const email =
-        `
-       <p> 
-       Hi ${search("name",applications).value}
-       </br> </br>
-       We have received your therapy application.
-       </br> </br>
-       We will generally contact you within two to three weeks.
-       </br> </br>
-       Kind Regards
+// const buildUserEmail = (applications) => {
+//     const email =
+//         `
+//        <p> 
+//        Hi ${search("name",applications).value}
+//        </br> </br>
+//        We have received your therapy application.
+//        </br> </br>
+//        We will generally contact you within two to three weeks.
+//        </br> </br>
+//        Kind Regards
 
-       </p>
-    `
-    return email
-}
+//        </p>
+//     `
+//     return email
+// }
