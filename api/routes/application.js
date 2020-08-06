@@ -41,30 +41,32 @@ router.post("/", (req, res) => {
         });
 
         console.log(result);
-    });
 
-    // User Message
-    let userMessage = {
-        from: "GEMMA Therapy Application <application@gemmainstitute.com>",
-        to: `${search("email", req.body).value}`,
-        subject: `Therapy Application - ${search("name", req.body).value}`,
-        replyTo: "application@gemmainstitute.com",
-        html: buildUserEmail(req.body)
-    };
+        // User Message
+        let userMessage = {
+            from: "GEMMA Therapy Application <application@gemmainstitute.com>",
+            to: `${search("email", req.body).value}`,
+            subject: `Therapy Application - ${search("name", req.body).value}`,
+            replyTo: "application@gemmainstitute.com",
+            html: buildUserEmail(req.body)
+        };
 
-    transporter.sendMail(userMessage, (error, result) => {
-        if (error) {
-            res.status(500).json({
-                message: "There seems to be an error submitting your feedback at this time. Please email your feedback to feedback@gemmainstitute.com."
-            })
-            return console.log(error)
-        }
-        res.status(200).json({
-            message: "Successful"
+        transporter.sendMail(userMessage, (error, result) => {
+            if (error) {
+                res.status(500).json({
+                    message: "There seems to be an error submitting your feedback at this time. Please email your feedback to feedback@gemmainstitute.com."
+                })
+                return console.log(error)
+            }
+            res.status(200).json({
+                message: "Successful"
+            });
+
+            console.log(result);
         });
-
-        console.log(result);
     });
+
+
 });
 
 
