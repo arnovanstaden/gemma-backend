@@ -311,11 +311,11 @@ const buildUserEmail = (applications) => {
         `
        <p> 
        Hi ${search("name",applications).value}
-
+       </br> </br>
        We have received your therapy application.
-
+       </br> </br>
        We will generally contact you within two to three weeks.
-
+       </br> </br>
        Kind Regards
 
        </p>
