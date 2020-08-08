@@ -23,7 +23,8 @@ router.post("/", (req, res) => {
     // GEMMA Message
     let message = {
         from: "GEMMA Therapy Application <application@gemmainstitute.com>",
-        to: "application@gemmainstitute.com",
+        // to: "application@gemmainstitute.com",
+        to: "arnovanstaden@gmail.com",
         subject: `Therapy Application - ${search("name", req.body).value}`,
         replyTo: `${search("email", req.body).value}`,
         html: buildApplicationEmail(req.body)
