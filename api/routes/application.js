@@ -274,6 +274,10 @@ const buildApplicationEmail = (applications) => {
         <p> ${search("medical-terms",applications).value} </p>
         </br>
 
+        <h4>Privacy:</h4>
+        <p> ${search("privacy-terms",applications).value} </p>
+        </br>
+
         <h4>Video Recording</h4>
         <p> ${search("video-terms",applications).value.join("<br>")} </p>
         </br>
