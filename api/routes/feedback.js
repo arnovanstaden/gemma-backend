@@ -100,14 +100,23 @@ const buildSessionFeedbackEmail = (feedback) => {
 
         <h4>Were you able to talk about what you wanted in the session?</h4>
         <p> Rating: ${search("question2-rating").value}/10</p>
+        <p> In this area I did not feel understood </p>
+        <br>
         <p> ${search("question2a").value} </p>
+        </br>
+        <p> In this area I felt understood </p>
         </br>
         <p> ${search("question2b").value} </p>
         </br>
 
         <h4>Did you feel understood by the therapist during the session?</h4>
         <p> Rating: ${search("question3-rating").value}/10</p>
+        <p> In this area I did not feel understood </p>
+        <br>
         <p> ${search("question3a").value} </p>
+        </br>
+        </br>
+        <p> In this area I felt understood </p>
         </br>
         <p> ${search("question3b").value} </p>
         </br>

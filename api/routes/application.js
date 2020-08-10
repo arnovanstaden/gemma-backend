@@ -87,10 +87,6 @@ const buildApplicationEmail = (applications) => {
         <p> ${search("phone",applications).value} </p>
         </br>
 
-        <h4>Date & Time of Availability:</h4>
-        <p> ${search("availability",applications).value} </p>
-        </br>
-
         <br>
         <h3 style="text-decoration: underline;"> 1. Current situation and symptoms </h3>
 
