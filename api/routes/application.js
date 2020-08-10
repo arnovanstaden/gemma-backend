@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
 const transporter = require("../utils/nodemailer");
 const fs = require("fs");
+const pdf = require("html-pdf");
+const {
+    create
+} = require("domain");
 
 
 // -----------------------
@@ -27,7 +31,11 @@ router.post("/", (req, res) => {
         // to: "arnovanstaden@gmail.com",
         subject: `Therapy Application - ${search("name", req.body).value}`,
         replyTo: `${search("email", req.body).value}`,
-        html: buildApplicationEmail(req.body)
+        html: buildApplicationEmail(req.body),
+        attachments: [{
+            filename: `Therapy Application - ${search("name", req.body).value}.html`,
+            content: buildApplicationEmail(req.body)
+        }]
     };
 
     transporter.sendMail(message, (error, result) => {
@@ -59,7 +67,8 @@ const buildApplicationEmail = (applications) => {
     let questions = JSON.parse(rawdata);
 
     const email =
-        `
+        `<html>
+        <body>
         <h3 style="text-decoration: underline;"> Personal Details </h3>
 
         <h4>Name:</h4>
@@ -281,25 +290,14 @@ const buildApplicationEmail = (applications) => {
         <h4>Video Recording</h4>
         <p> ${search("video-terms",applications).value.join("<br>")} </p>
         </br>
-
+        </html>
+        </body>
     `
     return email
 }
 
-
-// const buildUserEmail = (applications) => {
-//     const email =
-//         `
-//        <p> 
-//        Hi ${search("name",applications).value}
-//        </br> </br>
-//        We have received your therapy application.
-//        </br> </br>
-//        We will generally contact you within two to three weeks.
-//        </br> </br>
-//        Kind Regards
-
-//        </p>
-//     `
-//     return email
-// }
+const createPDF = (html) => {
+    pdf.create(html).toBuffer(function (err, buffer) {
+        return buffer
+    })
+}
