@@ -27,8 +27,8 @@ router.post("/", (req, res) => {
     // GEMMA Message
     let message = {
         from: "GEMMA Therapy Application <application@gemmainstitute.com>",
-        to: "application@gemmainstitute.com",
-        // to: "arnovanstaden@gmail.com",
+        // to: "application@gemmainstitute.com",
+        to: "arnovanstaden@gmail.com",
         subject: `Therapy Application - ${search("name", req.body).value}`,
         replyTo: `${search("email", req.body).value}`,
         html: buildApplicationEmail(req.body),
@@ -63,32 +63,40 @@ module.exports = router;
 
 const buildApplicationEmail = (applications) => {
 
-    let rawdata = fs.readFileSync("./api/data/questions.json");
+    let rawdata;
+    if (search("german-application", applications).value === true) {
+        console.log("German Application")
+        rawdata = fs.readFileSync("./api/data/questions-german.json");
+    } else {
+        console.log("English Application")
+        rawdata = fs.readFileSync("./api/data/questions.json");
+    }
+
     let questions = JSON.parse(rawdata);
 
     const email =
         `<html>
         <body>
-        <h3 style="text-decoration: underline;"> Personal Details </h3>
+        <h3 style="text-decoration: underline;"> ${questions[0]}: </h3>
 
-        <h4>Name:</h4>
+        <h4>${questions[0.1]}:</h4>
         <p> ${search("name",applications).value} </p>
         </br>
 
-        <h4>Date of Birth:</h4>
+        <h4>${questions[0.2]}:</h4>
         <p> ${search("dob",applications).value} </p>
         </br>
 
-        <h4>Email Address:</h4>
+        <h4>${questions[0.3]}:</h4>
         <p> ${search("email",applications).value} </p>
         </br>
 
-        <h4>Phone Number:</h4>
+        <h4>${questions[0.4]}:</h4>
         <p> ${search("phone",applications).value} </p>
         </br>
 
         <br>
-        <h3 style="text-decoration: underline;"> 1. Current situation and symptoms </h3>
+        <h3 style="text-decoration: underline;"> 1.  ${questions[1]}</h3>
 
         <h4>1.1 ${questions[1.1]}</h4>
         <p> ${search("question1-1",applications).value} </p>
@@ -108,7 +116,7 @@ const buildApplicationEmail = (applications) => {
 
   
         <br>
-        <h3 style="text-decoration: underline;"> 2. Personal history </h3>
+        <h3 style="text-decoration: underline;"> 2. ${questions[2]}</h3>
 
         <h4>2.1 ${questions[2.1]}</h4>
         <p> ${search("question2-1",applications).value} </p>
@@ -127,7 +135,7 @@ const buildApplicationEmail = (applications) => {
         </br>
   
         <br>
-        <h3 style="text-decoration: underline;"> 3. Resources </h3>
+        <h3 style="text-decoration: underline;"> 3. ${questions[3]} </h3>
 
         <h4>3.1 ${questions[3.1]}</h4>
         <p> ${search("question3-1",applications).value} </p>
@@ -142,7 +150,7 @@ const buildApplicationEmail = (applications) => {
         </br>
   
         <br>
-        <h3 style="text-decoration: underline;"> 4. Goals/vision </h3>
+        <h3 style="text-decoration: underline;"> 4.  </h3>
 
         <h4>4.1 ${questions[4.1]}</h4>
         <p> ${search("question4-1",applications).value} </p>
@@ -161,17 +169,17 @@ const buildApplicationEmail = (applications) => {
         </br>
   
         <br>
-        <h3 style="text-decoration: underline;"> 6. Medical history </h3>
+        <h3 style="text-decoration: underline;"> 6. ${questions[6]} </h3>
 
-        <h4>Height:</h4>
+        <h4>${questions["height"]}:</h4>
         <p> ${search("height",applications).value} cm</p>
         </br>
 
-        <h4>Weight:</h4>
+        <h4>${questions["weight"]}:</h4>
         <p> ${search("weight",applications).value} kg</p>
         </br>
 
-        <h4>6.1 Symptoms:</h4>
+        <h4>6.1 ${questions[6.1]}:</h4>
         <p> ${search("question6-1",applications).value.length < 1 ? "none" : search("question6-1",applications).value} </p>
         </br>
 
@@ -208,7 +216,7 @@ const buildApplicationEmail = (applications) => {
         </br>
 
         <br>
-        <h4 style="text-decoration: underline;">Gynaecological history </h4>
+        <h4 style="text-decoration: underline;"> ${questions[6.10]} </h4>
       
 
         <h4>6.10.1 ${questions["6.10.1"]}</h4>
@@ -236,9 +244,9 @@ const buildApplicationEmail = (applications) => {
         </br>
 
         <br>
-        <h4 style="text-decoration: underline;"> Family history </h4>
+        <h4 style="text-decoration: underline;"> ${questions["6.11"]} </h4>
         <br>
-        <h4> Is there a history of illness in your family? (high blood pressure, cardiovascular diseases, cancer, addiction, mental illness, etc.) </h4>
+        <h4> ${questions["6.11.0"]} </h4>
 
         <h4>6.11.1 ${questions["6.11.1"]}</h4>
         <p> ${search("question6-11-1",applications).value} </p>
@@ -257,7 +265,7 @@ const buildApplicationEmail = (applications) => {
         </br>
 
         <br>
-        <h4 style="text-decoration: underline;"> Suicidal Tendencies </h4>
+        <h4 style="text-decoration: underline;"> ${questions["6.12.0"]} </h4>
 
         <h4>6.12.1 ${questions["6.12.1"]}</h4>
         <p> ${search("question6-12-2",applications).value} </p>
@@ -269,31 +277,25 @@ const buildApplicationEmail = (applications) => {
 
         </br>
         </br>
-        <h3> Terms & Conditions <h3>
+        <h3> ${questions["Terms"]}  <h3>
 
-        <h4>Costs:</h4>
+        <h4>${questions["Costs"]}:</h4>
         <p> ${search("cost-terms",applications).value} </p>
         </br>
 
-        <h4>Medical:</h4>
+        <h4>${questions["Medical"]}:</h4>
         <p> ${search("medical-terms",applications).value} </p>
         </br>
 
-        <h4>Privacy:</h4>
+        <h4>${questions["Privacy"]}:</h4>
         <p> ${search("privacy-terms",applications).value} </p>
         </br>
 
-        <h4>Video Recording</h4>
+        <h4>${questions["Video"]}:</h4>
         <p> ${search("video-terms",applications).value.join("<br>")} </p>
         </br>
         </html>
         </body>
     `
     return email
-}
-
-const createPDF = (html) => {
-    pdf.create(html).toBuffer(function (err, buffer) {
-        return buffer
-    })
 }

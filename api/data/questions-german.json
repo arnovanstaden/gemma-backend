@@ -1,0 +1,68 @@
+{
+    "0": "Persönliche Daten",
+    "0.1": "Vollständiger Name",
+    "0.2": "Geburtsdatum",
+    "0.3": "E-Mail-Addresse",
+    "0.4": "Telefonnummer",
+
+    "1": "Aktuelle Situation und Symptomatik",
+    "1.1": "Mir ist wichtig, dass ich Sie mit Ihrem Anliegen bestmöglich unterstützen kann. Bitte teilen Sie mir hier mit, was ich wissen sollte, damit ich bezüglich Ihrer Situation auf dem aktuellsten Stand bin. ",
+    "1.2": " Was hat aus Ihrer Sicht zur aktuellen Situation geführt?",
+    "1.3": "Beeinträchtigen Symptome Ihr alltägliches Leben? Wenn ja, welche?",
+    "1.4": "Konnten Sie bereits erfolgreich Einfluss darauf nehmen? Wenn ja, wie?",
+
+    "2": "Vorgeschichte",
+    "2.1": "Bitte nennen Sie Ihre prägenden Lebensereignisse. ",
+    "2.2": "Wie haben Sie Ihr Familienleben in Ihrer Kindheit und Jugend erlebt?",
+    "2.3": "Wie haben Sie Ihre persönliche Entwicklung erlebt?",
+    "2.4": "Welche ambulante oder stationäre therapeutische Vorgeschichte haben Sie?",
+
+    "3": "Ressourcen",
+    "3.1": "Was soll sich während der ambulanten Therapie nicht ändern, weil Sie diesen Lebensumstand jetzt schon als wertvoll und hilfreich erleben?  ",
+    "3.2": "Was finden Sie gut an sich selbst? Was macht Ihnen Freude? Was sind Ihre Kraftquellen? ",
+    "3.3": "Welche Versuche einer Veränderung haben keine oder eher negative Auswirkungen mit sich gebracht?",
+
+    "4": "Ihr Anliegen",
+    "4.1": "Welche Wünsche haben Sie an die Therapie und an mich? ",
+    "4.2": "Gibt es Ihrerseits Befürchtungen oder Sorgen? Wenn ja, welche?",
+    "4.3": "Wofür würden Sie die Therapie gerne nutzen?",
+    "4.4": "Was denken Sie wie viel Zeit (Monate oder Jahre) werden wir für Ihre Anliegen brauchen?",
+
+    "6": "Anhang: Körperliche Vorgeschichte",
+    "weight": "Gewicht",
+    "height": "Grösse",
+    "6.1": "Symptome",
+    "6.2": "Sind bei Ihnen akute oder chronische Erkrankungen/Operationen bekannt? (Bitte geben Sie Krankheit / Operationen & an, wann sie aufgetreten sind)",
+    "6.3": "Welche Medikamente nehmen Sie ein? (Bitte Medikamente, Dosierung und Startdatum angeben)",
+    "6.4": "Rauchen Sie? Wenn ja, wie viel?",
+    "6.5": "Trinken Sie Alkohol? Wenn ja, wieviel und wie oft?",
+    "6.6": "Haben Sie Erfahrung mit der Einnahme von Drogen? Welche? Wie viel? Wann hast du angefangen?",
+    "6.7": "DHaben Sie Allergien?",
+    "6.8": "Nehmen Sie Vorsorgeuntersuchungen in Anspruch? Wann gehört ? Wie war das letzte Vorsorgeprogramm ? (z.B.Darmspiegelung, gynäkologische und urologische Vorsorge)",
+    "6.9": "Ist Ihr Impfstatus bekannt bzw. aktuell?",
+
+    "6.10": "Gynäkologische Vorgeschichte",
+    "6.10.1": "Waren Sie schon einmal schwanger?",
+    "6.10.2": "Wie sind die Geburten verlaufen?",
+    "6.10.3": "Gab es Fehlgeburten oder Abbrüche?",
+    "6.10.4": "Wie verhüten Sie?",
+    "6.10.5": "Wann war Ihre allererste Periode?",
+    "6.10.6": "Wann war Ihre letzte Periode?",
+
+    "6.11": "Familie Erkrankungen",
+    "6.11.0": "Gibt es in Ihrer Familie Erkrankungen, die Ihnen bekannt sind? (Bluthochdruck, Herz-Kreislauf-Krankheiten, Krebserkrankungen, Suchterkrankungen, seelische Erkrankungen etc.)",
+    "6.11.1": "Eltern Geburtsjahr Erkrankung",
+    "6.11.2": "Grosseltern Geburtsjahr Erkrankung    (ms- mütterlicher Seite, vs- väterlicher Seite)",
+    "6.11.3": "Geschwister Geburtsjahr Erkrankung",
+    "6.11.4": "Kinder Geburtsjahr Erkrankung",
+
+    "6.12.0": "Eigene Suizidalität",
+    "6.12.1": "Hatten oder haben Sie lebensüberdrüssige Gedanken?",
+    "6.12.2": "Gab es Pläne oder aktive Handlungen für einen Suizidversuch? Wann?",
+
+    "Terms": "Allgemeinen Geschäftsbedingungen",
+    "Medical": "Medizinische Tests",
+    "Costs": "Terminabsage",
+    "Privacy": "Datenschutzbestimmungen",
+    "Video": "Einwilligungserklärung für Videoaufnahme (freiwillig)"
+}

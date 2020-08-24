@@ -1,19 +1,37 @@
 {
+    "0": "Personal Details",
+    "0.1": "Name",
+    "0.2": "Date of Birth",
+    "0.3": "Email Address",
+    "0.4": "Phone Number",
+
+    "1": "Current situation and symptoms",
     "1.1": "Please tell me anything you think I should know before our first session so that I am up to date on the current situation and so that I can best support you. ",
     "1.2": "In your opinion, what led to the current situation?",
     "1.3": "Are your symptoms impacting your everyday life? If so, which?",
     "1.4": "Have you been able to successfully limit or control any of your symptoms already? If so, how?",
+
+    "2": "Personal history",
     "2.1": "What were the major events in your life so far?",
     "2.2": "What is your relationship like with your family of origin?",
     "2.3": "How would you assess your professional career?",
     "2.4": "Have you had any previous experience with inpatient or outpatient therapy?",
+
+    "3": "Resources",
     "3.1": "What do you not want to change during outpatient therapy because you feel that it is valuable and helpful? ",
     "3.2": "What do you like about yourself? What brings you joy? What gives you strength? ",
     "3.3": "What approaches have not been successful or had a negative effect?",
+
+    "4": "Goals/vision",
     "4.1": "What would you like to achieve with therapy? What are your expectations for me? ",
     "4.2": "Do you have any fears or worries about therapy? ",
     "4.3": "What would you like to use our sessions for?",
     "4.4": "How many sessions do you think we will be needing?",
+
+    "6": "Medical history",
+    "weight": "Weight",
+    "height": "Height",
+    "6.1": "SYmptoms",
     "6.2": "Do you have any chronic illnesses? Have you had any operations? (Please specify Illness/operations & when they occurred)",
     "6.3": " What medications are you currently taking? (Please specify medication, dosage & start date)",
     "6.4": "Do you smoke? If so, how much?",
@@ -22,16 +40,29 @@
     "6.7": "Do you have any allergies?",
     "6.8": "Have you ever had a preventive medical check-up? If so, when was your last one? What were the results of your last check-up/preventive procedure? (e.g. colonoscopy, gynaecological check-up, urological check-up)",
     "6.9": "Are your vaccinations currently up to date?",
+
+    "6.10": "Gynaecological history",
     "6.10.1": "Have you ever been pregnant?",
     "6.10.2": "Have you ever given birth? If so, how was your experience giving birth?",
     "6.10.3": "Have you ever had a miscarriage or an abortion?",
     "6.10.4": "Which form(s) of contraception do you use?",
     "6.10.5": "When was your first menstrual cycle?",
     "6.10.6": "When was your most recent menstrual cycle?",
+
+    "6.11": "Family history",
+    "6.11.0": "Is there a history of illness in your family? (high blood pressure, cardiovascular diseases, cancer, addiction, mental illness, etc.)",
     "6.11.1": "Parents - Year of birth & Illness(es)",
     "6.11.2": "Grandparents - Year of birth & Illness(es)",
     "6.11.3": "Siblings - Year of birth & Illness(es)",
     "6.11.4": "Children - Year of birth & Illness(es)",
+
+    "6.12.0": "Suicidal Tendencies",
     "6.12.1": "Have you ever experienced or are you currently experiencing suicidal thoughts?",
-    "6.12.2": "Have you ever planned or taken action towards a suicide attempt? If so, when?"
+    "6.12.2": "Have you ever planned or taken action towards a suicide attempt? If so, when?",
+
+    "Terms": "Terms & Conditions",
+    "Medical": "Medical Tests",
+    "Costs": "Costs",
+    "Privacy": "Privacy",
+    "Video": "Video Recording"
 }
