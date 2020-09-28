@@ -1,6 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const transporter = require("../utils/nodemailer")
+const transporter = require("../utils/nodemailer");
+
+const searchName = (nameKey, data) => {
+    for (var i = 0; i < data.length; i++) {
+        if (data[i].name === nameKey) {
+            return data[i];
+        }
+    }
+}
 
 router.post("/website", (req, res) => {
 
@@ -15,7 +23,7 @@ router.post("/website", (req, res) => {
         html: `
             <h4>Website Feedback:</h4>
             <p> ${req.body[0].value}</p>
-        `
+        `,
     };
 
     transporter.sendMail(message, (error, result) => {
@@ -41,10 +49,14 @@ router.post("/session", (req, res) => {
 
     let message = {
         from: "GEMMA Feedback <feedback@gemmainstitute.com>",
-        // to: "arnovanstaden@gmail.com",
-        to: "feedback@gemmainstitute.com",
+        to: "arnovanstaden@gmail.com",
+        // to: "feedback@gemmainstitute.com",
         subject: "Session Feedback",
-        html: buildSessionFeedbackEmail(req.body)
+        html: buildSessionFeedbackEmail(req.body),
+        attachments: [{
+            filename: `Session Feedback - ${searchName("full_name", req.body).value}.html`,
+            content: buildSessionFeedbackEmail(req.body)
+        }]
     };
 
     transporter.sendMail(message, (error, result) => {
@@ -67,16 +79,18 @@ router.post("/session", (req, res) => {
 
 module.exports = router;
 
-
 // --------------------------------
 // EMAILS
 
 const buildSessionFeedbackEmail = (feedback) => {
-
-    function search(nameKey) {
+    const search = (nameKey) => {
         for (var i = 0; i < feedback.length; i++) {
             if (feedback[i].name === nameKey) {
-                return feedback[i];
+                if (feedback[i].name === "") {
+                    return "No Answer"
+                } else {
+                    return feedback[i];
+                }
             }
         }
     }
@@ -87,48 +101,43 @@ const buildSessionFeedbackEmail = (feedback) => {
         <h4>Name:</h4>
         <p> ${search("full_name").value} </p>
         </br>
-
+        </br>
+        
         <h4>Session Date:</h4>
         <p> ${search("session_date").value} </p>
         </br>
-
+        </br>
 
         <h4>Were you able to talk about what you wanted in the session?</h4>
         <p> Rating: ${search("question1-rating").value}/10</p>
         <p> ${search("question1").value} </p>
         </br>
-
+        </br>
         <h4>Were you able to talk about what you wanted in the session?</h4>
         <p> Rating: ${search("question2-rating").value}/10</p>
-        <p> In this area I did not feel understood </p>
-        <br>
+        <p> In this area I did not feel understood: </p>
         <p> ${search("question2a").value} </p>
         </br>
-        <p> In this area I felt understood </p>
-        </br>
+        <p> In this area I felt understood: </p>
         <p> ${search("question2b").value} </p>
         </br>
-
+        </br>
         <h4>Did you feel understood by the therapist during the session?</h4>
         <p> Rating: ${search("question3-rating").value}/10</p>
-        <p> In this area I did not feel understood </p>
-        <br>
+        <p> In this area I did not feel understood: </p>
         <p> ${search("question3a").value} </p>
         </br>
-        </br>
-        <p> In this area I felt understood </p>
-        </br>
+        <p> In this area I felt understood: </p>
         <p> ${search("question3b").value} </p>
         </br>
-
+        </br>
         <h4>What surprised you most during the session?</h4>
         <p> ${search("question4").value} </p>
         </br>
-
+        </br>
         <h4>What moved you most during the session?</h4>
         <p> ${search("question5").value} </p>
         </br>
     `
-
     return email
 }
