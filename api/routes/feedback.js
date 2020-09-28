@@ -49,8 +49,8 @@ router.post("/session", (req, res) => {
 
     let message = {
         from: "GEMMA Feedback <feedback@gemmainstitute.com>",
-        to: "arnovanstaden@gmail.com",
-        // to: "feedback@gemmainstitute.com",
+        // to: "arnovanstaden@gmail.com",
+        to: "feedback@gemmainstitute.com",
         subject: "Session Feedback",
         html: buildSessionFeedbackEmail(req.body),
         attachments: [{
