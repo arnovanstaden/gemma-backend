@@ -5,7 +5,7 @@ const transporter = nodemailer.createTransport({
     port: 465,
     secure: true, // upgrade later with STARTTLS
     auth: {
-        user: "info@webdacity.co.za",
+        user: "admin@webdacity.co.za",
         pass: process.env.NODEMAILER_PW
     },
     tls: {
@@ -17,7 +17,7 @@ transporter.verify(function (error, success) {
     if (error) {
         console.log(error);
     } else {
-        console.log("Server is ready to take our messages (info@)");
+        console.log("Server is ready to take our messages (admin@)");
     }
 });
 
