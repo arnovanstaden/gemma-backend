@@ -1,0 +1,13 @@
+{
+    "name": "Vollständiger Name",
+    "sessionDate": "Sitzungsdatum",
+
+    "1": "Konnten Sie in der Sitzung über Ihre Wünsche sprechen?",
+    "2": "Fühlten Sie sich während der Sitzung von dem Therapeut verstanden?",
+    "3": " Fühlten Sie sich während der Sitzung von Ihrem Partner / den anderen Familienmitgliedern verstanden?",
+    "4": "Was hat Sie während der Sitzung am meisten überrascht?",
+    "5": " Was hat Sie während der Sitzung am meisten bewegt?",
+
+    "understood": "In diesem Bereich fühlte ich mich nicht verstanden",
+    "notUnderstood": "In diesem Bereich fühlte ich mich verstanden"
+}

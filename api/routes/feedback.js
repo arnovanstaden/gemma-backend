@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const transporter = require("../utils/nodemailer");
+const fs = require("fs");
 
 const searchName = (nameKey, data) => {
     for (var i = 0; i < data.length; i++) {
@@ -49,8 +50,8 @@ router.post("/session", (req, res) => {
 
     let message = {
         from: "GEMMA Feedback <feedback@gemmainstitute.com>",
-        // to: "arnovanstaden@gmail.com",
-        to: "feedback@gemmainstitute.com",
+        to: "arno@webdacity.dev",
+        // to: "feedback@gemmainstitute.com",
         subject: "Session Feedback",
         html: buildSessionFeedbackEmail(req.body),
         attachments: [{
@@ -84,6 +85,7 @@ module.exports = router;
 
 const buildSessionFeedbackEmail = (feedback) => {
     const search = (nameKey) => {
+        console.log("Searching for:" + nameKey)
         for (var i = 0; i < feedback.length; i++) {
             if (feedback[i].name === nameKey) {
                 if (feedback[i].name === "") {
@@ -95,47 +97,60 @@ const buildSessionFeedbackEmail = (feedback) => {
         }
     }
 
+    let rawdata;
+    if (search("german-feedback").value === true) {
+        console.log("German Feedback")
+        rawdata = fs.readFileSync("./api/data/feedback-german.json");
+    } else {
+        console.log("English Feedback")
+        rawdata = fs.readFileSync("./api/data/feedback-english.json");
+    }
+
+    let questions = JSON.parse(rawdata);
+
     const email =
 
         `
-        <h4>Name:</h4>
+        <h4>${questions["name"]}:</h4>
         <p> ${search("full_name").value} </p>
         </br>
         </br>
         
-        <h4>Session Date:</h4>
+        <h4>${questions["sessionDate"]}:</h4>
         <p> ${search("session_date").value} </p>
         </br>
         </br>
 
-        <h4>Were you able to talk about what you wanted in the session?</h4>
+        <h4>${questions[1]}</h4>
         <p> Rating: ${search("question1-rating").value}/10</p>
         <p> ${search("question1").value} </p>
         </br>
         </br>
-        <h4>Were you able to talk about what you wanted in the session?</h4>
+        <h4>${questions[2]}</h4>
         <p> Rating: ${search("question2-rating").value}/10</p>
-        <p> In this area I did not feel understood: </p>
+        </br>
+        <p> ${questions["notUnderstood"]}: </p>
         <p> ${search("question2a").value} </p>
         </br>
-        <p> In this area I felt understood: </p>
+        <p> ${questions["understood"]}: </p>
         <p> ${search("question2b").value} </p>
         </br>
         </br>
-        <h4>Did you feel understood by the therapist during the session?</h4>
+        <h4>${questions[3]}</h4>
         <p> Rating: ${search("question3-rating").value}/10</p>
-        <p> In this area I did not feel understood: </p>
+        </br>
+        <p> ${questions["notUnderstood"]}: </p>
         <p> ${search("question3a").value} </p>
         </br>
-        <p> In this area I felt understood: </p>
+        <p> ${questions["understood"]}: </p>
         <p> ${search("question3b").value} </p>
         </br>
         </br>
-        <h4>What surprised you most during the session?</h4>
+        <h4>${questions[4]}</h4>
         <p> ${search("question4").value} </p>
         </br>
         </br>
-        <h4>What moved you most during the session?</h4>
+        <h4>${questions[5]}</h4>
         <p> ${search("question5").value} </p>
         </br>
     `

@@ -1,0 +1,13 @@
+{
+    "name": "Full name",
+    "sessionDate": "Session Date",
+
+    "1": "Were you able to talk about what you wanted in the session?",
+    "2": "Did you feel understood by the therapist during the session?",
+    "3": "Did you feel understood by your partner / other family members during the session?",
+    "4": "What surprised you most during the session?",
+    "5": "What moved you most during the session?",
+
+    "understood": "In this area I felt understood",
+    "notUnderstood": "In this area I did not feel understood"
+}
