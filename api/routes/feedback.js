@@ -50,8 +50,8 @@ router.post("/session", (req, res) => {
 
     let message = {
         from: "GEMMA Feedback <feedback@gemmainstitute.com>",
-        to: "arno@webdacity.dev",
-        // to: "feedback@gemmainstitute.com",
+        // to: "arno@webdacity.dev",
+        to: "feedback@gemmainstitute.com",
         subject: "Session Feedback",
         html: buildSessionFeedbackEmail(req.body),
         attachments: [{
@@ -85,7 +85,6 @@ module.exports = router;
 
 const buildSessionFeedbackEmail = (feedback) => {
     const search = (nameKey) => {
-        console.log("Searching for:" + nameKey)
         for (var i = 0; i < feedback.length; i++) {
             if (feedback[i].name === nameKey) {
                 if (feedback[i].name === "") {
