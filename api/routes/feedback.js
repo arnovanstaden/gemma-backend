@@ -17,7 +17,7 @@ router.post("/website", (req, res) => {
     console.log(req.body);
 
     let message = {
-        from: "GEMMA Feedback <feedback@gemmainstitute.com>",
+        from: "GEMMA Feedback <thegemmainstitute@gmail.com>",
         // to: "arnovanstaden@gmail.com",
         to: "feedback@gemmainstitute.com",
         subject: "Website Feedback",
