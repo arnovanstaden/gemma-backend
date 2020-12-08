@@ -17,7 +17,7 @@ router.post("/website", (req, res) => {
     console.log(req.body);
 
     let message = {
-        from: "GEMMA Feedback <thegemmainstitute@gmail.com>",
+        from: "GEMMA Feedback <gemma@webdacity.co.za",
         // to: "arnovanstaden@gmail.com",
         to: "feedback@gemmainstitute.com",
         subject: "Website Feedback",
@@ -49,7 +49,7 @@ router.post("/session", (req, res) => {
     console.log(req.body);
 
     let message = {
-        from: "GEMMA Feedback <thegemmainstitute@gmail.com>",
+        from: "GEMMA Feedback <gemma@webdacity.co.za>",
         // to: "arno@webdacity.dev",
         to: "feedback@gemmainstitute.com",
         subject: "Session Feedback",

@@ -26,7 +26,7 @@ router.post("/", (req, res) => {
 
     // GEMMA Message
     let message = {
-        from: "GEMMA Therapy Application <thegemmainstitute@gmail.com>",
+        from: "GEMMA Therapy Application <gemma@webdacity.co.za>",
         to: "application@gemmainstitute.com",
         // to: "arno@webdacity.dev",
         subject: `Therapy Application - ${search("name", req.body).value}`,
